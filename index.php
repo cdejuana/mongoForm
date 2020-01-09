@@ -24,6 +24,14 @@ and open the template in the editor.
                 'saldo'=>50000
                 ]);
             echo "\nId del ultimo registro: " . $res->getInsertedId() . '<br>';
+             $res = $db->usuarios->insertMany(
+               ['nomre'=>'Manolo',
+                'clave'=>'0000',
+                'saldo'=>50],
+               ['nomre'=>'Pepe',
+                'clave'=>'6969',
+                'saldo'=>69]);
+            echo "\nId del ultimo registro: " . $res->getInsertedId() . '<br>';
         } catch (Exception $ex) {
             print($e);
             //comentario prueba
