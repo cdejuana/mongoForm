@@ -1,0 +1,14 @@
+{
+    "name": "vendor/mongo-form",
+    "description": "Description of project mongoForm.",
+    "authors": [
+        {
+            "name": "dawmi",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "ext-mongodb": "* 1.6.1",
+        "mongodb/mongodb": "dev-master"
+    }
+}
