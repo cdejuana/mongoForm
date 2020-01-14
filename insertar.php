@@ -17,11 +17,12 @@ and open the template in the editor.
         //var_dump($cliente);
         $db = $cliente->LibroServidor;
         //var_dump($db);
-        
-        try{
-            $nombre = $GET['usuario'];
-            $clave = (int) $GET['clave'];
-            $saldo = (int) $GET['saldo'];
+
+        $nombre = $_GET["usuario"];
+        $clave = (int) $_GET["clave"];
+        $saldo = (int) $_GET["saldo"];
+
+        try{            
             $res = $db->usuarios->insertOne([
                 'nombre'=>$nombre,
                 'clave'=>$clave,
