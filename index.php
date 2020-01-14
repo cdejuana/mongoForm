@@ -10,32 +10,18 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php
-        require 'vendor/autoload.php';
-        $cliente = new MongoDB\Client();
-        echo 'buena conexion' . '<br>';
-        //var_dump($cliente);
-        $db = $cliente->LibroServidor;
-        //var_dump($db);
-        try{
-            $res = $db->usuarios->insertOne([
-                'nomre'=>'Carlos',
-                'clave'=>'1234',
-                'saldo'=>50000
-                ]);
-            echo "\nId del ultimo registro: " . $res->getInsertedId() . '<br>';
-             $res = $db->usuarios->insertMany(
-               ['nomre'=>'Manolo',
-                'clave'=>'0000',
-                'saldo'=>50],
-               ['nomre'=>'Pepe',
-                'clave'=>'6969',
-                'saldo'=>69]);
-            echo "\nId del ultimo registro: " . $res->getInsertedId() . '<br>';
-        } catch (Exception $ex) {
-            print($e);
-            //comentario prueba
-        }
-        ?>
+        <form action="insertar.php" method="get">
+            <input type="submit" name="enviar">
+        </form><br>
+        <form action="buscar.php" method="get">
+            Buscar usuario: <input type="text" name="usuario">
+            <input type="submit" name="enviar">
+        </form><br>
+        <form action="actualizar.php" method="get">
+            Usuario: <input type="text" name="usuario">
+            Saldo nuevo: <input type="number" name="saldo">
+            <input type="submit" name="enviar">
+        </form><br>
+        
     </body>
 </html>
