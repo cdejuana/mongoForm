@@ -10,9 +10,6 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form action="insertar.php" method="get">
-            <input type="submit" name="enviar">
-        </form>
         <?php
         require 'vendor/autoload.php';
         $cliente = new MongoDB\Client();
@@ -20,21 +17,25 @@ and open the template in the editor.
         //var_dump($cliente);
         $db = $cliente->LibroServidor;
         //var_dump($db);
+        
         try{
+            $nombre = $GET['usuario'];
+            $clave = (int) $GET['clave'];
+            $saldo = (int) $GET['saldo'];
             $res = $db->usuarios->insertOne([
-                'nomre'=>'Carlos',
-                'clave'=>'1234',
-                'saldo'=>50000
+                'nombre'=>$nombre,
+                'clave'=>$clave,
+                'saldo'=>$saldo
                 ]);
             echo "\nId del ultimo registro: " . $res->getInsertedId() . '<br>';
-             $res = $db->usuarios->insertMany(
-               ['nomre'=>'Manolo',
+            /*$res = $db->usuarios->insertMany(
+               ['nombre'=>'Manolo',
                 'clave'=>'0000',
                 'saldo'=>50],
-               ['nomre'=>'Pepe',
+               ['nombre'=>'Pepe',
                 'clave'=>'6969',
                 'saldo'=>69]);
-            echo "\nId del ultimo registro: " . $res->getInsertedId() . '<br>';
+            echo "\nId del ultimo registro: " . $res->getInsertedId() . '<br>';*/
         } catch (Exception $ex) {
             print($e);
             //comentario prueba

@@ -11,6 +11,10 @@ and open the template in the editor.
     </head>
     <body>
         <form action="insertar.php" method="get">
+            Insertar Usuario:
+            <input type="text" name="usuario"><br>
+            Clave:<input type="text" name="clave"><br>
+            Saldo:<input type="text" name="saldo"><br>
             <input type="submit" name="enviar">
         </form><br>
         <form action="buscar.php" method="get">
